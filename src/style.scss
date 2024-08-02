@@ -1,0 +1,29 @@
+@unocss default;
+
+/*
+  Fallback layer. It's always recommended to include.
+  Only unused layers will be injected here.
+*/
+@unocss;
+
+body {
+  @apply bg-dark-700 color-light-700;
+}
+
+t-form-group {
+  @apply flex flex-col gap-y-1 mblg;
+  max-width: fit-content;
+
+  t-form-label {
+    @apply fw-bold;
+  }
+
+  t-form-text-item {
+    @apply grid gap-lg;
+    grid-template-columns: 1fr auto;
+
+    label {
+      @apply color-green-400 break-normal;
+    }
+  }
+}
