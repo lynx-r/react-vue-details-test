@@ -21,15 +21,11 @@
     "noFallthroughCasesInSwitch": true,
     "declaration": true,
 
-    "rootDir": "./"
-  },
-  "include": ["src"],
-  "references": [
-    {
-      "path": "./src/react"
-    },
-    {
-      "path": "./src/vue"
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@admin/*": ["src/vue/modules/admin/*"]
     }
-  ]
+  },
+  "include": ["src"]
 }

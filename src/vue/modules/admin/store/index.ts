@@ -1,3 +1,3 @@
-// export { simpleMarketplaceStore } from './simple'
-// export { useMarketplaceStore } from './pinia'
+export { useAdminStore } from "./pinia";
+export { simpleAdminStore } from "./simple";
 export {};
