@@ -4,9 +4,10 @@
     <ul>
       <li
         v-for="userDetails in usersDetails"
-        :key="userDetails.email"
+        :key="userDetails.id"
       >
-        {{ userDetails }}
+        {{ userDetails.email }}:
+        {{ userDetails.userNumber }}
       </li>
     </ul>
     <label>Found users: {{ usersDetails.length }} </label>

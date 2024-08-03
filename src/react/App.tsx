@@ -1,3 +1,10 @@
-export default function DetailsForm() {
-  return <div>Details Form 12</div>;
+import { StrictMode } from "react";
+import HomeView from "./views/HomeView";
+
+export default function App() {
+  return (
+    <StrictMode>
+      <HomeView />
+    </StrictMode>
+  );
 }

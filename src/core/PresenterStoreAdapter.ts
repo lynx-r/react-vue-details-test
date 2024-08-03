@@ -1,16 +1,16 @@
-import { merge } from "lodash";
-import type { UpdatableState } from "./UpdatableState";
+import type { CommonStoreInterface } from "./CommonStoreInterface";
 
-export class PresenterStoreAdapter<T> {
-  constructor(private store: UpdatableState<T>) {}
+export abstract class CommonStoreAdapter<State> {
+  constructor(private store: CommonStoreInterface<State>) {}
 
-  protected get state() {
-    return this.store.state;
+  protected get _state(): State {
+    return this.store._state;
   }
 
-  protected updateState(newState: Partial<T> | T[keyof T]) {
-    const mergedState = merge(this.state, newState);
-    this.store.updateState(mergedState);
+  protected abstract get innerState(): State;
+
+  protected updateState(newState: Partial<State> | State[keyof State]) {
+    this.store.updateState(newState);
   }
 
   resetState() {

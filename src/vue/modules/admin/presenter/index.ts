@@ -1,4 +1,2 @@
-import initState from "./initState";
-import { usePresenter } from "./usePresenter";
-
-export { initState, usePresenter };
+export { default as initState } from "./initState";
+export * from "./usePresenter";

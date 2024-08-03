@@ -4,40 +4,51 @@
     v-model:user-number="userNumber"
     @search="search"
   />
-  {{ email }}{{ userNumber }}
   <DisplayUserDetails
     title="Reactive store"
-    :users-details="usersDetails"
+    :users-details="presenterReactive.usersDetails"
+  />
+  <DisplayUserDetails
+    title="Ref store"
+    :users-details="presenterRef.usersDetails"
   />
   <DisplayUserDetails
     title="Pinia store"
-    :users-details="usersDetailsPinia"
+    :users-details="presenterPinia.usersDetails"
   />
+  {{ usersDetails }}
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 
 import DisplayUserDetails from "../components/DisplayUserDetails.vue";
 import SearchDetailsForm from "../components/SearchDetailsForm.vue";
-import { initState, usePresenter } from "../presenter";
+import { DEFAULT_USER_DETAILS } from "../constants";
+import { createPresenter } from "../presenter";
+import { createReactiveStore, createRefStore, usePiniaStore } from "../store";
 import { UserDetailsReq } from "../types";
 
-const email = ref("john.doe@example.com");
-const userNumber = ref("0");
+const email = ref(DEFAULT_USER_DETAILS.email);
+const userNumber = ref(DEFAULT_USER_DETAILS.userNumber);
 
-const state = reactive(initState());
-const presenter = usePresenter(state);
-const { usersDetails } = presenter;
-const presenterPinia = usePresenter();
-const { usersDetails: usersDetailsPinia } = presenterPinia;
+const reactiveStore = createReactiveStore();
+const presenterReactive = createPresenter(reactiveStore, "value");
+
+const refStore = createRefStore();
+const presenterRef = createPresenter(refStore, "value");
+
+const currentStore = usePiniaStore();
+const presenterPinia = createPresenter(currentStore);
+const usersDetails = presenterPinia.usersDetails;
 
 async function search() {
   const userDetailsReq: UserDetailsReq = {
     email: email.value,
     userNumber: userNumber.value,
   };
-  await presenter.onGetUsersDetails(userDetailsReq);
+  await presenterReactive.onGetUsersDetails(userDetailsReq);
+  await presenterRef.onGetUsersDetails(userDetailsReq);
   await presenterPinia.onGetUsersDetails(userDetailsReq);
 }
 </script>
