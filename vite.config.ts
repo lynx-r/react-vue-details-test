@@ -19,7 +19,7 @@ export default defineConfig({
         },
       },
     }),
-    React(),
+    React({}),
     UnoCSS({
       transformCSS: "post",
       postcss: true,

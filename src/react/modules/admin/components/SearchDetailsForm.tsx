@@ -1,6 +1,7 @@
 import { UserDetails } from "@admin/types";
 import { useState } from "react";
 
+import { InputEvent } from "@/react/types";
 import { DEFAULT_USER_DETAILS } from "@admin/constants";
 
 interface Props {
@@ -12,7 +13,7 @@ const SearchDetailsForm = (props: Props) => {
   const [userDetails, setUserDetails] =
     useState<UserDetails>(DEFAULT_USER_DETAILS);
 
-  const handleChange = (e) =>
+  const handleChange = (e: InputEvent) =>
     setUserDetails((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,

@@ -1,20 +1,19 @@
-import { ReactiveState, ReactiveStore } from "@/vue/types";
+import { CommonStore } from "@/core/CommonStore";
+import { ReactiveState } from "@/core/types";
 import { reactive } from "vue";
 import initState from "../presenter/initState";
 import type { State } from "../types";
 
-const createReactiveStore: ReactiveStore<State> = () => {
-  const state = reactive<ReactiveState<State>>({ value: initState() });
+const createReactiveStore = (): CommonStore<State> => {
+  const state = reactive<ReactiveState<State>>({ innerValue: initState() });
   return {
-    _state: state as unknown as State,
-    innerState: () => {
-      return state.value;
-    },
+    state,
+    stateValueProp: "innerValue",
     updateState(newState: State) {
-      state.value = newState;
+      state.innerValue = newState;
     },
     resetState() {
-      state.value = initState();
+      state.innerValue = initState();
     },
   };
 };

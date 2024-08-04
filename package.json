@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check-errors": "tsc --noEmit --watch"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.7",

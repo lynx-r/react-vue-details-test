@@ -1,7 +1,0 @@
-{
-  "composite": true,
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "react"
-  }
-}

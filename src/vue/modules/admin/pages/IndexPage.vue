@@ -16,7 +16,6 @@
     title="Pinia store"
     :users-details="presenterPinia.usersDetails"
   />
-  {{ usersDetails }}
 </template>
 
 <script setup lang="ts">
@@ -33,14 +32,13 @@ const email = ref(DEFAULT_USER_DETAILS.email);
 const userNumber = ref(DEFAULT_USER_DETAILS.userNumber);
 
 const reactiveStore = createReactiveStore();
-const presenterReactive = createPresenter(reactiveStore, "value");
+const presenterReactive = createPresenter(reactiveStore);
 
 const refStore = createRefStore();
-const presenterRef = createPresenter(refStore, "value");
+const presenterRef = createPresenter(refStore);
 
 const currentStore = usePiniaStore();
 const presenterPinia = createPresenter(currentStore);
-const usersDetails = presenterPinia.usersDetails;
 
 async function search() {
   const userDetailsReq: UserDetailsReq = {

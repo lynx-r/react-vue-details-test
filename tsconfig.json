@@ -13,18 +13,17 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "jsx": "preserve",
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "declaration": true,
 
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@admin/*": ["src/vue/modules/admin/*"]
+      "@/*": ["./src/*"],
+      "@admin/*": ["./src/vue/modules/admin/*"]
     }
   },
   "include": ["src"]

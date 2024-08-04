@@ -1,10 +1,13 @@
-import { UseStateStore, UseStateType } from "@/react/types";
+import { CommonStore } from "@/core/CommonStore";
+import { UseStateType } from "@/react/types";
 import initState from "@admin/presenter/initState";
 import { State } from "@admin/types";
 
-const store: UseStateStore<State> = ([state, dispatchFunc]: State) => ({
-  _state: state,
-  innerState: state,
+const store = ([
+  state,
+  dispatchFunc,
+]: UseStateType<State>): CommonStore<State> => ({
+  state,
   updateState(newState: State) {
     dispatchFunc((curState) => ({ ...curState, ...newState }));
   },
@@ -13,6 +16,6 @@ const store: UseStateStore<State> = ([state, dispatchFunc]: State) => ({
   },
 });
 
-export function useStateStoreAdmin(state: UseStateType) {
+export function useStateStoreAdmin(state: UseStateType<State>) {
   return store(state);
 }
