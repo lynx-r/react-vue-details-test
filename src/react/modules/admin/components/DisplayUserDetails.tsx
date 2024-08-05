@@ -11,11 +11,11 @@ const DisplayUserDetails = (props: Props) => {
     <li key={user.id}>{user.email}</li>
   ));
   return (
-    <>
-      <label>{title}</label>
+    <t-display-card className="mb-6">
+      <t-label>{title}</t-label>
       <ul>{usersItems}</ul>
-      <label>Found users: {usersDetails.length} </label>
-    </>
+      <t-label-info>Found users: {usersDetails.length} </t-label-info>
+    </t-display-card>
   );
 };
 

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <label>{{ title }}</label>
+  <t-display-card>
+    <t-label>{{ title }}</t-label>
     <ul>
       <li
         v-for="userDetails in usersDetails"
@@ -10,8 +10,8 @@
         {{ userDetails.userNumber }}
       </li>
     </ul>
-    <label>Found users: {{ usersDetails.length }} </label>
-  </div>
+    <t-label-info>Found users: {{ usersDetails.length }} </t-label-info>
+  </t-display-card>
 </template>
 
 <script setup lang="ts">

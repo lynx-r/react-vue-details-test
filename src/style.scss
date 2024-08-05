@@ -27,3 +27,23 @@ t-form-group {
     }
   }
 }
+
+t-display-card {
+  @apply block mb-6 mr-6;
+}
+
+t-label {
+  @apply color-yellow;
+}
+
+t-label-info {
+  @apply color-blue-400;
+}
+
+t-card {
+  @apply border bg-dark-100 m-2 p-4 border-dark-700 b-solid b-rd;
+}
+
+t-module-header {
+  @apply my-2 block font-size-5 font-bold color-red300;
+}

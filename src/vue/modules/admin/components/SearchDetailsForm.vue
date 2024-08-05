@@ -1,8 +1,8 @@
 <template>
   <t-form-group>
-    <t-form-label> User details form asdfsdfs dfdsfdfgdfg </t-form-label>
+    <t-form-label> User details</t-form-label>
     <t-form-text-item>
-      <label for="email">Email sdfdsfdsfgdf sgdfgfdgh</label>
+      <label for="email">Email</label>
       <input
         id="email"
         type="email"

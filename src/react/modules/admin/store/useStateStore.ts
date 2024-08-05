@@ -7,7 +7,9 @@ const store = ([
   state,
   dispatchFunc,
 ]: UseStateType<State>): CommonStore<State> => ({
-  state,
+  get state() {
+    return state;
+  },
   updateState(newState: State) {
     dispatchFunc((curState) => ({ ...curState, ...newState }));
   },

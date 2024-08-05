@@ -7,8 +7,9 @@ import type { State } from "../types";
 const createReactiveStore = (): CommonStore<State> => {
   const state = reactive<ReactiveState<State>>({ innerValue: initState() });
   return {
-    state,
-    stateValueProp: "innerValue",
+    get state() {
+      return state.innerValue;
+    },
     updateState(newState: State) {
       state.innerValue = newState;
     },

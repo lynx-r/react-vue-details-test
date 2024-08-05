@@ -1,5 +1,3 @@
-import { useState } from "react";
-
-export type UseStateType<S> = ReturnType<typeof useState<S>>;
+export type UseStateType<S> = [S, React.Dispatch<React.SetStateAction<S>>];
 
 export * from "./react";

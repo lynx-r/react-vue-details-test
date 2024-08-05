@@ -22,9 +22,9 @@ const SearchDetailsForm = (props: Props) => {
   return (
     <>
       <t-form-group>
-        <t-form-label>User details form asdfsdfs dfdsfdfgdfg</t-form-label>
+        <t-form-label>User details</t-form-label>
         <t-form-text-item>
-          <label htmlFor="email">Email sdfdsfdsfgdf sgdfgfdgh</label>
+          <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"

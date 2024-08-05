@@ -14,7 +14,8 @@ export const usePiniaStore = defineStore("admin", (): CommonStore<State> => {
   }
 
   return {
-    state,
+    // todo find workaround for typecast
+    state: state as unknown as State,
     updateState,
     resetState,
   };

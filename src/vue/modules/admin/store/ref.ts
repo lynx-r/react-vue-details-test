@@ -6,8 +6,9 @@ import type { State } from "../types";
 const createRefStore = (): CommonStore<State> => {
   const state = ref<State>(initState());
   return {
-    state,
-    stateValueProp: "value",
+    get state() {
+      return state.value;
+    },
     updateState(newState: State) {
       state.value = newState;
     },

@@ -13,8 +13,7 @@ export class PresenterImpl
   }
 
   get usersDetails() {
-    debugger;
-    return this.stateValue?.usersDetails || [];
+    return this.state?.usersDetails || [];
   }
 
   async onGetUsersDetails(userDetails: UserDetailsReq): Promise<void> {
