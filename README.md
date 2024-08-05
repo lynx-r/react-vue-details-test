@@ -13,3 +13,4 @@ that I used here a MVP pattern from my repo [vue-mvp-architecture](https://githu
 - Vue and React in single page
 - UnoCSS for styling with @apply directive for styling custom elements
 - Pattern Model View Presenter (MVP)
+- A project folder structure to a big perspective

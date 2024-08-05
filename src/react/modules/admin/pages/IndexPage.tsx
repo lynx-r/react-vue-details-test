@@ -1,3 +1,4 @@
+import { usePiniaStore } from "@/vue/modules/admin/store";
 import { createPresenter, initState } from "@admin/presenter";
 import { UserDetails, UserDetailsReq } from "@admin/types";
 import { useState } from "react";
@@ -14,6 +15,9 @@ const IndexPage = () => {
   const reduxStore = createReduxStore();
   const presenterRedux = createPresenter(reduxStore);
 
+  const currentStore = usePiniaStore();
+  const presenterPinia = createPresenter(currentStore);
+
   const onUserSearch = (user: UserDetails) => {
     const { email, userNumber } = user;
     const userDetailsReq: UserDetailsReq = {
@@ -22,6 +26,7 @@ const IndexPage = () => {
     };
     presenterState.onGetUsersDetails(userDetailsReq);
     presenterRedux.onGetUsersDetails(userDetailsReq);
+    presenterPinia.onGetUsersDetails(userDetailsReq);
   };
 
   return (
@@ -35,6 +40,10 @@ const IndexPage = () => {
       <DisplayUserDetails
         title="Redux store"
         usersDetails={presenterRedux.usersDetails}
+      />
+      <DisplayUserDetails
+        title="Pinia store"
+        usersDetails={presenterPinia.usersDetails}
       />
     </>
   );
